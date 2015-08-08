@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+mkdir -p ${OPENSHIFT_PYTHON_DIR}/etc;
+
+[ -d /opt/jelastic-python27/lib/python2.7/site-packages/yum ] && rm -rf /opt/jelastic-python27/lib/python2.7/site-packages/yum;
+cp -r /usr/lib/python2.7/site-packages/yum /opt/jelastic-python27/lib/python2.7/site-packages/;
+
+echo "jelastic ALL=(ALL) NOPASSWD: /usr/sbin/setcap " >> /etc/sudoers;
