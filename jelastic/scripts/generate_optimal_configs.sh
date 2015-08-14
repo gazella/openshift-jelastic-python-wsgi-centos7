@@ -2,7 +2,7 @@
 
 SED=`which sed`;
 GREP=`which grep`;
-DEFAULT_HTTPD_CONFIG="${OPENSHIFT_PYTHON_DIR}/versions/2.4/etc/conf/httpd.conf";
+DEFAULT_HTTPD_CONFIG="${OPENSHIFT_PYTHON_DIR}/versions/2.4/etc/conf/httpd_nolog.conf";
 TOTALMEM=`free -m | grep Mem | awk '{print $2}'`;
 MAX_CLIENTS=$(($TOTALMEM / 40));
 START_SERVERS=$(($TOTALMEM / 50));
