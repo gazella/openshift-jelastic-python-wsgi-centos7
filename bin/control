@@ -92,9 +92,6 @@ function stop_apache() {
 
 function stop() {
     echo "Stopping Python ${OPENSHIFT_PYTHON_VERSION} cartridge"
-
-    # Do both in case the last commit transitioned from one to the
-    # other or there was a problem.
     stop_apache
     stop_app
 }
@@ -136,21 +133,6 @@ function tidy() {
 }
 
 function build() {
-    if [ -n "$OPENSHIFT_PYPI_MIRROR_URL" ]; then
-        m=$OPENSHIFT_PYPI_MIRROR_URL
-        if curl -m 15 -f -s "$m" &>/dev/null
-        then
-            OPENSHIFT_PYTHON_MIRROR="-i $m"
-        fi
-    fi
-
-    if [ ! -f $VIRTUAL_ENV/bin/python ]; then
-      echo "Recreating virtenv" 1>&2
-      create-virtenv
-    fi
-
-    echo "Activating virtenv"
-    activate-virtenv
 
     local requirements_file=${OPENSHIFT_PYTHON_REQUIREMENTS_PATH:-requirements.txt}
     if [ -f ${OPENSHIFT_REPO_DIR}/ROOT/${requirements_file} ]; then
@@ -163,12 +145,7 @@ function build() {
         ( cd $OPENSHIFT_REPO_DIR; python ${OPENSHIFT_REPO_DIR}/ROOT/setup.py develop $OPENSHIFT_PYTHON_MIRROR )
     fi
 
-    relative-virtenv
-}
-
-function deploy() {
-    relative-virtenv
-    activate-virtenv
+    pip install --upgrade pip
 }
 
 case "$1" in
