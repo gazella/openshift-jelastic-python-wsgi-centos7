@@ -161,6 +161,7 @@ function _finishDeploy(){
         echo "Running setup.py script.."
         ( cd $OPENSHIFT_REPO_DIR; python ${OPENSHIFT_REPO_DIR}/ROOT/setup.py develop $OPENSHIFT_PYTHON_MIRROR )
     fi
+    pip install --upgrade pip
     _clearCache;
 }
 
