@@ -156,6 +156,5 @@ case "$1" in
   status)    status ;;
   tidy)      tidy ;;
   build)     build ;;
-  deploy)    deploy ;;
   *)         exit 0
 esac
