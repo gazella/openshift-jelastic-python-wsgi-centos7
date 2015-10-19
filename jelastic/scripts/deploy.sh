@@ -107,7 +107,7 @@ function _clearCache(){
 function _updateOwnership(){
     shopt -s dotglob;
 	APPWEBROOT=$1;
-        $CHOWN -R "$DATA_OWNER" "$APPWEBROOT" 2>>"$JEM_CALLS_LOG";
+        chown -R "$DATA_OWNER" "$APPWEBROOT" 2>>"$JEM_CALLS_LOG";
         chmod -R a+r  "$APPWEBROOT" 2>>"$JEM_CALLS_LOG";
     chmod -R u+w  "$APPWEBROOT" 2>>"$JEM_CALLS_LOG";
     shopt -u dotglob;
