@@ -13,7 +13,7 @@ backupConfig() {
 
 
 applyOptimizations(){
-        #backupConfig $DEFAULT_HTTPD_CONFIG;
+        backupConfig $DEFAULT_HTTPD_CONFIG;
         $SED -i "/ServerLimit/c\ServerLimit     $MAX_CLIENTS" $DEFAULT_HTTPD_CONFIG;
         $SED -i "/MaxClients/c\MaxClients     $MAX_CLIENTS" $DEFAULT_HTTPD_CONFIG;
         $SED -i "/StartServers/c\StartServers     $START_SERVERS" $DEFAULT_HTTPD_CONFIG;
