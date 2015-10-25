@@ -8,7 +8,7 @@ MAX_CLIENTS=$(($TOTALMEM / 40));
 START_SERVERS=$(($TOTALMEM / 50));
 
 backupConfig() {
-    cp $1 $1.autobackup
+    cp -f $1 $1.autobackup
 }
 
 
