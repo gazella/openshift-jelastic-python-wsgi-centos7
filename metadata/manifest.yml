@@ -1,19 +1,18 @@
 ---
-Name: apache
-Cartridge-Short-Name: PYTHON
+Name: python
+Cartridge-Short-Name: PYTHONNODEJS
 Display-Name: Python multiversion
 Description: 'Python is a general-purpose, high-level programming language whose design
   philosophy emphasizes code readability. Popular development frameworks include:
   Django, Bottle, Pylons, Zope and TurboGears.'
 Version: '2.4'
-Source-Url: https://github.com/jelastic-public-cartridges/openshift-jelastic-python-wsgi-centos7.git
+Source-Url: https://github.com/gazella/openshift-jelastic-python-wsgi-centos7.git
 License: The Python License, version 2.7-3.4
 License-Url: http://docs.python.org/3/license.html
 Vendor: python.org
-Cartridge-Version: 0.0.12
+Cartridge-Version: 0.0.2
 Compatible-Versions:
-- 0.0.10
-- 0.0.11
+- 0.0.1
 Cartridge-Vendor: redhat
 Categories:
 - service
@@ -36,6 +35,5 @@ Scaling:
 Endpoints:
 - Private-IP-Name: IP
   Private-Port-Name: PORT
-  Private-Port: 8080
+  Private-Port: 8069
   Public-Port-Name: PROXY_PORT
- 
